@@ -27,7 +27,17 @@ class SessionsController {
       expiresIn
     });
 
-    response.status(201).json({ token, user });
+    response.cookie("token", token, {
+      httpOnly: true, // medida de segurança que impede que o cookie seja acessado por scripts. Ele só é acessado por req http
+      sameSite: "none",
+      secure: true,
+      maxAge: 15 * 60 * 1000
+    })
+
+    // pra senha não aparecer no localStorage
+    delete user.password
+
+    response.status(201).json({ user });
   }
 }
 
