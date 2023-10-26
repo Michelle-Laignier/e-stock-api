@@ -11,7 +11,7 @@ function ensureAuthenticated(request, response, next) {
   }
 
   // ["token=", "rjfnrve"]
-  const [, token] = authHeader.split('token=');
+  const [, token] = authHeader.cookie.split('token=');
   // [, "rjfnrve"]
 
   try {
