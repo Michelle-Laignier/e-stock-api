@@ -6,7 +6,6 @@ const routes = require("./routes");
 const cookieParser = require("cookie-parser") // lib que é middleware que ajuda no parse do cookie
 
 const AppError = require("./utils/AppError");
-const cookieParser = require("cookie-parser");
 
 const app = express();
 app.use(express.json());
